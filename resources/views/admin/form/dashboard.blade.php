@@ -34,7 +34,9 @@ $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial sha
                     <h3 class="page-header"><i class="icon_piechart"></i> RIMGC Research Samples (Total: 1210)</h3>
                     
                     <ol class="breadcrumb">
+<!--
                         <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+-->
                         <li><i class="icon_piechart"></i>Dashboard</li>
 
                     </ol>
