@@ -1,6 +1,6 @@
 
 <?php
-$dataFemale = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.gender', 'Female')->count();
+$dataFemale = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.gender', 'Female')-> count();
 $dataMale = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.gender', 'Male')->count();
 $dataGenomicYes = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.genomic_data', 'Yes')->count();
 $dataGenomicNo = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.genomic_data', NULL)->count();
@@ -14,11 +14,11 @@ $_1p2g = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_inf
 $others = DB::table('imgc_medical_patient_info')->where('imgc_medical_patient_info.tube_type', 'other')->count();
 $hpo1 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Bilateral sensorineural hearing impairment')->count();
 $hpo2 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Global developmental delay')->count();
-$hpo3 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Short stature')->count();
-$hpo4 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Generalized hypotonia')->count();
+$hpo4 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Short stature')->count();
+$hpo3 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Generalized hypotonia')->count();
 $hpo5 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Failure to thrive')->count();
-$hpo6 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Microcephaly')->count();
-$hpo7 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Delayed speech and language development')->count();
+$hpo7 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Microcephaly')->count();
+$hpo6 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Delayed speech and language development')->count();
 $hpo8 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Autism')->count();
 $hpo9 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Muscular hypotonia')->count();
 $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial shape')->count();
@@ -30,16 +30,9 @@ $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial sha
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h6 class="page-header"></i> Last updated: Nov 5, 2018</h6>
-                    <h3 class="page-header"><i class="icon_piechart"></i> RIMGC Research Samples (Total: 1210)</h3>
+                    <h6 class="page-header"></i> Last updated: Jan 24, 2019</h6>
+                    <h3 class="page-header"><i class="icon_piechart"></i> RIMGC Research Samples (Total samples: <?php echo $dataFemale+$dataMale; ?>)</h3>
                     
-                    <ol class="breadcrumb">
-<!--
-                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
--->
-                        <li><i class="icon_piechart"></i>Dashboard</li>
-
-                    </ol>
                 </div>
             </div>
             <div class="row">
@@ -58,15 +51,17 @@ $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial sha
                 <!-- chart morris start -->
                 <div class="col-lg-12">
                     <section class="panel">
-                        <header class="panel-heading">
+                        <!--<header class="panel-heading">
                             <h3>General Chart</h3>
+
                         </header>
+                        -->
                         <div class="row">
                                     <!-- Line -->
                                     <div class="col-lg-6">
                                         <section class="panel">
                                             <header class="panel-heading">
-                                                Genomic Sample Available
+                                                Genomic Data Available
                                             </header>
                                             <div class="panel-body text-center" id="genomic">
                                                 <canvas id="pie2" height="300" width="400"></canvas>
@@ -97,7 +92,7 @@ $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial sha
                                     <div class="col-lg-6">
                                         <section class="panel">
                                             <header class="panel-heading">
-                                                RIMGC Probands
+                                                RIMGC Gender Distribution
                                             </header>
                                             <div class="panel-body text-center" id="chart">
 
@@ -169,7 +164,7 @@ $hpo10 = DB::table('rimgc_hpo')->where('rimgc_hpo.hpo_term','Abnormal facial sha
                 type: 'pie'
             },
             title: {
-                text: 'Gender distribution among the Probands'
+                text: 'Gender distribution among the samples'
             },
             subtitle: {
                 text: null

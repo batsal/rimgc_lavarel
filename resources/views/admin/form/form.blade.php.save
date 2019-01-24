@@ -1,0 +1,472 @@
+
+@extends("admin.layout.main")
+@section('content')
+<form name="research" class="form-horizontal" method="post" role="form" action="{{url('form')}}">
+      {{ csrf_field() }}
+      <div class="container-fluid">
+      <div class="row" >
+                <div class="col-lg-6 m-t">
+                  <h3 class="page-header" style="margin-top: 0px;"><i class="fa fa-file-text-o"></i>IMGC Research </h3>
+                  <!-- <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="icon_document_alt"></i>Forms</li>
+                    <li><i class="fa fa-file-text-o"></i>Form elements</li>
+                  </ol> -->
+                </div>
+                 <div class="col-lg-6 m-t">
+                   <section class="pull-right">                  
+                         <a href="" class="btn btn-primary">Enroll New Subjects</a>&nbsp;&nbsp;
+
+                         <a href="{{url('form')}}" class="btn btn-primary">View All enrolled Subjects</a>&nbsp;&nbsp;
+
+                         <a href="" class="btn btn-primary">BackToMain</a>
+                    </section>
+                </div>
+      </div>
+    </div>
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+      <!-- Basic Forms & Horizontal Forms-->
+      <div class="container-fluid">
+      <div class="row">
+       <div class="col-lg-12">
+        <section class="head-f" style="margin-bottom: 10px;">
+          
+          <div class="col-md-offset-2">
+                <div class="inline text-left" >
+                <label for="createdBy" class="col-lg-5 text-left control-label">Created BY</label>
+                <div class="col-lg-7">
+                  <input type="text" class="form-control" id="createdBy" name="created_by" 
+                  value="{{ Auth::user()->name }}" disabled="true">
+                 
+                </div>
+              </div>
+           
+              <div class="inline date text-left">
+                <label for="created_date" class="col-lg-6 text-left control-label">Created Date</label>
+                <div class="col-lg-6">
+                  <input type="date" class="form-control" id="dp1" class="datepicker" name="created_date" required="true">
+                </div>
+              </div>
+                <div class="inline text-left">
+                <label for="inputPassword1" class="col-lg-3 text-left control-label">Family ID</label>
+                <div class="col-lg-6">
+                  <input type="text" class="form-control" id="family_id" name="family_id" required="true">
+                </div>
+          </div>
+          </div>
+        </section>
+      
+      </div>
+    </div>
+  </div>
+      <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-5">
+          <section class="panel">
+            
+            <div class="panel-body">
+              
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                  <label for="sampleRecDate">Sample Rec Date</label>
+                  </div>
+
+                  <div class="col-md-6">
+                  <input type="date" class="form-control" id="sampleRecDate" class="datepicker" name="sample_recorded_date">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                    <label for="subject">Subject</label>
+                  </div>
+                  <div class="col-md-6">
+                  <select class="form-control  m-bot15" name="subject" id="subject">
+                      <option value="Father">Father</option>
+                      <option value="Mother">Mother</option>
+                      <option value="Other">Other</option>
+                      <option value="Proband">Proband</option>
+                      <option value="Sibbling">Sibbling</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                    <label for="affected">Affected</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="affected" name="affected">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                    <label for="number">Number</label>
+                  </div>
+                   <div class="col-md-2">
+                    <select class="form-control m-bot15" name="number">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="enrolled">Enrolled</label>
+                  </div>
+                  <div class="col-md-3">
+                  <select class="form-control  m-bot15" name="enrolled">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                  
+                </div>
+                </div>
+                <div class="radios">
+                  <div class="col-md-4 text-right">
+                    <label for="sample">Sample</label>
+                  </div>
+                  <div class="col-md-6">
+                      <label class="label_radio" for="radio-01">
+                          <input name="sample" id="radio-01" value="Yes" type="radio" checked /> Yes
+                      </label>
+                      <label class="label_radio" for="radio-02">
+                          <input name="sample" id="radio-02" value="No" type="radio" /> No
+                      </label>
+                      <label class="label_radio" for="radio-03">
+                          <input name="sample" id="radio-03" value="Pending" type="radio" /> Pending
+                      </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                  <label for="tubeType">Tube Type</label>
+                </div>
+                <div class="col-md-6">
+                  <select class="form-control m-bot15" name="tube_type">
+                     <option value="">---Select ---</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                       <option value="3">3</option>
+                      <option value="4">4</option>
+                       <option value="5">5</option>
+                      <option value="6">6</option>
+                       <option value="7">7</option>
+                      <option value="8">8</option>
+                       <option value="9">9</option>
+                      <option value="other">other</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4 text-right">
+                  <label for="sampleType">Sample Type</label>
+                  </div>
+                  <div class="col-md-6">
+                  <select class="form-control  m-bot15" name="sample_type">
+                      <option value="">---Select ---</option>
+                      <option value="Cell">Cell Line Only</option>
+                      <option value="DNA">DNA only</option>
+                      <option value="Cell/DNA">Cell Line /DNA</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="col-md-offset-1 col-lg-8">
+                    <section class="panel non-chop">
+                      <label>Non Chop Exome </label>
+                      <div class="panel-body" style="display: inline-block; float: right;">
+                          <div class="form-group">
+                            <div class="checkbox"><input type="checkbox"> 
+                              <p>Data Transfer Outside Source</p><label class="" for="labUsed" style="font-weight: 600;">Lab Used</label>
+                              <input class="form-control" id="lab_used"  type="text" name="lab_used">
+                            </div>
+                        </div>
+                         
+                      </div>
+                    </section>
+
+                </div>
+                
+              
+
+            </div>
+          </section>
+        </div>
+
+        <div class="col-lg-6">
+          <section class="panel">
+           
+            <div class="panel-body">
+              
+                <div class="form-group">
+                  <label for="inputEmail1" class="col-lg-3 text-right control-label">Study ID</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="study_id" value="RIMGC" name="study_id" required="true">
+                   
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="mrn" class="col-lg-3 text-right control-label">MRN</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="mrn" name="mrn">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lastName" class="col-lg-3 text-right control-label">Last Name</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="firstName" class="col-lg-3 text-right control-label">First Name</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="first_name" name="first_name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dob" class="col-lg-3 text-right control-label">DOB</label>
+                  <div class="col-lg-3">
+                    <input type="date" class="form-control" id="dob" class="datepicker"  name="dob">
+                  </div>
+                  <div class="col-lg-3">
+                     <label for="sex" class="col-lg-4 text-right control-label">Sex</label>
+                  <select class="col-md-8 m-bot15" name="gender" style="border: 1px solid #ccc; color: #777; font-size: 11px; height: 22px;">
+                        <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  </select>
+                </div>
+                </div>
+               
+               
+                <div class="form-group">
+                  <label for="sdgId" class="col-lg-3 text-right control-label">SDG ID</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="sdgId" name="sdg_id">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dnaBioBank" class="col-lg-3 text-right control-label">DNA In Biobank</label>
+                  <div class="col-lg-2">
+                    <div class="radios">
+                      <label class="label_radio" for="radio-01">
+                                                <input name="dna_biobank" id="dna_biobank-01" value="Yes" type="radio" checked /> Yes
+                                            </label>
+                      <label class="label_radio" for="radio-02">
+                                                <input name="dna_biobank" id="dna_biobank-02" value="No" type="radio" /> No
+                                            </label>
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <label for="lclBioBank" class="text-right control-label">LCL In Biobank</label>
+                    <div class="radios" style="display: inline-block; margin-left: 20px;">
+                      <label class="label_radio" for="lcl_biobank1">
+                                                <input name="lcl_biobank" id="lcl_biobank-01" value="Yes" type="radio" checked /> Yes
+                                            </label>
+                      <label class="label_radio" for="lcl_biobank2">
+                                                <input name="lcl_biobank" id="lcl_biobank-02" value="No" type="radio" /> No
+                     
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="form-group">
+                  <label for="race" class="col-lg-3 text-right control-label">Race</label>
+                  <div class="col-lg-2">
+                  <select class="form-control  m-bot15" name="race">
+                                            <option value="">---Select---</option>
+                                            <option value="01">White</option>
+                                            <option value="02">Black/African American</option>
+                                            <option value="03">Hispanic/latino</option>
+                                            <option value="04">Asian</option>
+                                            <option value="05">American Indian/Alaska Native</option>
+                                            <option value="06">Ntive Huwaain/Other pacific Ilander</option>
+                                            <option value="07">More Than one race</option>
+                                            <option value="08">Unknown</option>
+                                            <option value="09">Not available</option>
+                  </select>
+                </div>
+                                  <label for="ethnicity" class="col-lg-1 text-right control-label">Ethnicity</label>
+                  <div class="col-lg-2">
+                  <select class="form-control  m-bot15" name="ethnicity">
+                                          <option value="">---Select---</option>
+                                          <option value="01">Hispanic/latino</option>
+                                          <option value="02">Non-Hispanic/latino</option>
+                                          <option value="03">Unknown</option>
+                                          <option value="04">Not available</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group">
+
+                </div>
+                <div class="form-group comment">
+                    <label for="comment" class="col-lg-3 text-right control-label">Comments</label>
+                    <div class="col-lg-6">
+                      <div id="editor" class="btn-toolbar cke_editable cke_editable_inline cke_contents_ltr" data-role="editor-toolbar" data-target="#editor" tabindex="0" spellcheck="false" style="position: relative;" role="textbox" aria-label="Rich Text Editor, editor" title="Rich Text Editor, editor" aria-describedby="cke_48" contenteditable="true" name="comment"><p><br></p></div>
+                    </div>
+                  </div>
+             </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+      <!-- Inline form-->
+      
+    <div class="container-fluid text-form">
+      <div class="row">
+        <div class="col-md-12">
+          @include('admin.form.test_form')
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid text-form concent">
+      <div class="row">
+        <div class="col-md-12">
+         @include('admin.form.consent_form')
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+     <button type="submit" class="btn btn-primary">SAVE</button>
+       </div>
+     </div>
+    </div>
+</form>
+          <!-- page end-->
+@endsection
+@section('style')
+<style type="text/css">
+  /*----- Tabs -----*/
+.tabs {
+width:100%;
+display:inline-block;
+}
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+display:block;
+clear:both;
+content:'';
+}
+.tab-links li {
+margin:0px 5px;
+float:left;
+list-style:none;
+}
+.tab-links a {
+padding:9px 15px;
+display:inline-block;
+border-radius:3px 3px 0px 0px;
+background:#7FB5DA;
+font-size:16px;
+font-weight:600;
+color:#4c4c4c;
+transition:all linear 0.15s;
+}
+.tab-links a:hover {
+background:#a7cce5;
+text-decoration:none;
+}
+li.active a, li.active a:hover {
+background:#fff;
+color:#4c4c4c;
+}
+/*----- Content of Tabs -----*/
+.tab-content {
+padding:15px;
+border-radius:3px;
+box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+background:#fff;
+}
+.tab {
+display:none;
+}
+.tab.active {
+display:block;
+}
+</style>
+@endsection
+@section('script')
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+  $('.tabs .tab-links a').on('click', function(e)  {
+  var currentAttrValue = $(this).attr('href');
+  // Show/Hide Tabs
+  $('.tabs ' + currentAttrValue).show().siblings().hide();
+  // Change/remove current tab to active
+  $(this).parent('li').addClass('active').siblings().removeClass('active');
+  e.preventDefault();
+  });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      $(document).on("click",'.add' ,function(){ 
+          var $tr = $(this).closest("tr");
+          var tr = $(document).find("table tbody tr").length;
+          var lenth = tr;
+          var radioButton ="<label for='result-1"+lenth+"'><input type='radio' value='Yes' name='test[result]["+lenth+"]'>Yes</label><label for='result-2"+lenth+"'><input type='radio' value='NO' ame='test[result]["+lenth+"]'>No</label>";
+          $tr.clone().insertAfter($tr);$(document).on("click",'.add' ,function(){ 
+          var $tr = $(this).closest("tr");
+          var tr = $(document).find("table tbody tr").length;
+          var lenth = tr;
+          var radioButton ="<label for='result-1"+lenth+"'><input type='radio' value='Yes' name='test[result]["+lenth+"]'>Yes</label><label for='result-2"+lenth+"'><input type='radio' value='NO' ame='test[result]["+lenth+"]'>No</label>";
+          $tr.clone().insertAfter($tr);
+          $(document).find("table tbody tr:last th:nth-child(8)").html(radioButton);
+
+          return true;
+      });
+          $(document).find("table tbody tr:last th:nth-child(8)").html(radioButton);
+
+          return true;
+      });
+      $(document).on("click",'.delete',function(){
+          var $tr = $(this).closest("tr");
+          var tr = $(document).find("table tbody tr").length; 
+           if(tr > 1){
+             $tr.remove();
+           }
+           return true;
+         
+      });
+      $(document).on("keyup","#family_id",function(){
+           var family_id = $(this).val(); 
+           var study_id = $("#study_id").val();
+           var subject=$("#subject").val();
+           var final_study_id ='RIMGC'+family_id+subject.slice(0,1);
+           
+           $("#study_id").val(final_study_id)
+
+      });
+      $(document).on("change","select[name='subject']",function(){
+           var family_id = $('#family_id').val(); 
+           var study_id  = $("#study_id").val();
+           var subject   = $("#subject").val();
+
+           var final_study_id ='RIMGC'+family_id+subject.slice(0,1);
+           
+           $("#study_id").val(final_study_id)
+
+      });
+  });
+
+</script>
+@endsection

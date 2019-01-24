@@ -1,0 +1,167 @@
+
+@extends("admin.layout.main")
+@section('content')
+<div class="container-fluid">
+<div class="row">
+
+                 <div class="col-lg-6">
+                    <h3 class="page-header"><i class="fa fa-file-text-o"></i>IMGC RESEARCH</h3>
+                </div>
+                <div class="col-lg-6">
+                 <section class="text-right" style="margin-bottom: 15px;">
+
+                    @if($role_name !='employee')
+                       <a href="{{url('/form/create')}}" class="btn btn-primary">Enroll New Subjects</a>&nbsp;
+&nbsp;
+
+                    @endif
+                  </section>
+                </div>
+      </div>
+<div class="row">
+    <div class="col-md-12">
+   <div class="panel">
+
+      <div class="panel-body">
+      <table class="filter" cellspacing="0" cellpadding="3" border="0">
+
+        <tbody class="head-f">
+           <!-- <tr id="filter_global"> -->
+                <!-- <td>Search</td>
+                <td align="center"><input class="global_filter" id="global_filter" type="text"></td> -->
+                <!-- <td align="center"><input class="global_filter" id="global_regex" type="checkbox"></td> -->
+                <!-- <td align="center"><input class="global_filter" id="global_smart" checked="checked" type="checkbox"></td> -->
+            <!-- </tr> -->
+            <tr id="filter_col1" data-column="0">
+                <td>Id</td>
+                <td align="center"><input class="column_filter" id="col0_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col0_regex" type="checkbox"></td> -->
+                <!-- <td align="center"><input class="column_filter" id="col0_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+            <tr id="filter_col2" data-column="1">
+                <td>Name</td>
+                <td align="center"><input class="column_filter" id="col1_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col1_regex" type="checkbox"></td>
+                <td align="center"><input class="column_filter" id="col1_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+            <tr id="filter_col3" data-column="2">
+                <td>Study ID</td>
+                <td align="center"><input class="column_filter" id="col2_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col2_regex" type="checkbox"></td>
+                <td align="center"><input class="column_filter" id="col2_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+            <tr id="filter_col4" data-column="3">
+                <td>Family ID</td>
+                <td align="center"><input class="column_filter" id="col3_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col3_regex" type="checkbox"></td>
+                <td align="center"><input class="column_filter" id="col3_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+            <tr id="filter_col5" data-column="4">
+                <td>MRN</td>
+                <td align="center"><input class="column_filter" id="col4_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col4_regex" type="checkbox"></td>
+                <td align="center"><input class="column_filter" id="col4_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+             <tr id="filter_col6" data-column="5">
+                <td>Start date</td>
+                <td align="center"><input class="column_filter" id="col5_filter" type="text"></td>
+                <!-- <td align="center"><input class="column_filter" id="col5_regex" type="checkbox"></td>
+                <td align="center"><input class="column_filter" id="col5_smart" checked="checked" type="checkbox"></td> -->
+            </tr>
+
+        </tbody>
+    </table><table id="example" class="display table-responsive table-striped" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Study ID</th>
+                <th>Family ID</th>
+                <th>MRN</th>
+                <th>Sample Rec Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <!-- <tfoot>
+             <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Study ID</th>
+                <th>Family ID</th>
+                <th>MRN</th>
+                <th>Sample Rec Date</th>
+                @if($role_name !='employee')
+                <th>Action</th>
+                @endif
+            </tr>
+        </tfoot> -->
+        <tbody>
+           @foreach($infos as $key=>$i)
+            <tr>
+                <td>{{$key+1}}</td>
+                <td>{{$i -> first_name}}{{$i -> last_name}}</td>
+                <td>{{$i -> study_id}}</td>
+                <td>{{$i -> family_id}}</td>
+                <td>{{$i -> mrn}}</td>
+                <td>{{$i -> sample_recorded_date}}</td>
+                @if($role_name !='employee')
+                <td><a href="{{ route('form.edit' ,$i->patient_info_id) }}" class="btn btn-default btn-sm" ><i class="fa fa-edit"></i></a>
+                     <form action="{{url('form', [$i->patient_info_id])}}" method="POST" style="display: inline-block;">
+                         <input type="hidden" name="_method" value="DELETE">
+                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <!-- <input type="submit" class="btn btn-danger" value="Delete"/> -->
+                       <button type="submit" class="btn btn-default btn-sm">
+                            <i class="fa fa-times"></i>
+                        </button>
+                     </form>
+
+
+                </td>
+                @endif
+            </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+</div>
+</div>
+
+  </div>
+</div>
+@endsection
+@section('style')
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+@endsection
+@section('script')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  function filterGlobal () {
+    $('#example').DataTable().search(
+        $('#global_filter').val(),
+        $('#global_regex').prop('checked'),
+        $('#global_smart').prop('checked')
+    ).draw();
+}
+
+function filterColumn ( i ) {
+    $('#example').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val(),
+        $('#col'+i+'_regex').prop('checked'),
+        $('#col'+i+'_smart').prop('checked')
+    ).draw();
+}
+
+$(document).ready(function() {
+    $('#example').DataTable();
+
+    $('input.global_filter').on( 'keyup click', function () {
+        filterGlobal();
+    } );
+
+    $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('tr').attr('data-column') );
+    } );
+} );
+
+</script>
+@endsection

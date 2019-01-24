@@ -19,8 +19,8 @@ Route::namespace('admin')->group(function () {
     // Route::get('/', 'FormController@index');
     Route::get('/', 'FormController@dashboard');
     Route::get('/form/list', 'FormController@index');
-    Route::get('/form/listall', 'FormController@listall');
     Route::get('/form/list_w_edit', 'FormController@list_w_edit');
+    Route::get('/form/listall', 'FormController@advanced_search');
     Route::get('/form/search', 'FormController@search');
     Route::get('/form/search1', 'FormController@search1')->name('form.search1');
     Route::get('/form/searchandlist', 'FormController@searchandlist')->name('form.searchandlist');
