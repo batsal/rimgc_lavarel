@@ -1399,7 +1399,13 @@ display:block;
 
   $("#subject").on('change', ()=>{
      let subjectval = $("#subject").val();
-     let study = $("#study_id").val().slice(1);
+     let study = $("#study_id").val();
+     let lastchar = study[study.length - 1];
+     if (lastchar > '9') {
+       if (lastchar != 'A') {
+         study = study.substring(0, study.length - 1);
+       }
+     }
      let all = study+subjectval;
       $("#study_id").val(all);
   });
