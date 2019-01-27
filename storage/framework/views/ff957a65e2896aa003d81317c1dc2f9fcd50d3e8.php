@@ -43,7 +43,7 @@
 
             <div class="col-md-offset-2">
                   <div class="inline text-left" >
-                  <label for="createdBy" class="col-lg-5 text-left control-label">Created BY</label>
+                  <label for="createdBy" class="col-lg-5 text-left control-label">Created By</label>
                   <div class="col-lg-7">
                     <input type="text" class="form-control" id="createdBy" name="created_by"
                     value="<?php echo e(Auth::user()->name); ?>" disabled="true">
@@ -67,6 +67,9 @@
           </section>
         </div>
       </div>
+    </div>
+
+      <h4><u><b> Demographics </b></u></h4>
 
       <div class="container-fluid">
         <div class="row">
@@ -200,6 +203,7 @@
                     </div>
                   </div>
 
+
                   <div class="form-group">
                     <div class="col-md-4 text-right">
                       <label for="other_member">Other Family Member</label>
@@ -210,7 +214,7 @@
                     </div>
                   </div>
 
-
+                <p></p>
 
                   <!--
                   <div class="form-group">
@@ -402,9 +406,11 @@
                     </div>
                   </div> -->
 
-                  <div class="col-md-offset-1 col-lg-9">
+                  <div class="col-md-offset-1 col-lg-8">
                       <section class="panel non-chop">
-                        <label>Non Chop Exome </label>
+                        <div class="col-lg-4 text-right">
+                          <label>Non Chop Exome </label>
+                        </div>
                         <div class="panel-body" style="display: inline-block; float: right;">
                             <div class="form-group">
                               <div class="checkbox"><input type="checkbox" name="non_chop_exome" value="1"
@@ -664,7 +670,7 @@
 
                  <div class="form-group">
                    <label for="status_affected_member" class="col-md-4 text-right control-label">Type of test data available</label>
-                    <div class="radios col-lg-6" style="display: inline-block; margin-left: 20px;">
+                    <div class="radios" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="available_test_data">
                                                 <input name="available_test_data[]" id="available_test_data-01" value="1" type="checkbox"
                                                 <?php if(is_array(old('available_test_data')) &&
@@ -1400,7 +1406,7 @@ display:block;
      let subjectval = $("#subject").val();
      let study = $("#study_id").val();
      let lastchar = study[study.length - 1];
-     if (lastchar > '9') {
+     if (lastchar < '0' || lastchar > '9') {
        if (lastchar != 'A') {
          study = study.substring(0, study.length - 1);
        }
