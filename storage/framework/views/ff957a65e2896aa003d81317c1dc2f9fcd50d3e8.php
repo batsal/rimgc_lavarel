@@ -214,7 +214,6 @@
                     </div>
                   </div>
 
-                <p></p>
 
                   <!--
                   <div class="form-group">
@@ -1409,6 +1408,14 @@ display:block;
      if (lastchar < '0' || lastchar > '9') {
        if (lastchar != 'A') {
          study = study.substring(0, study.length - 1);
+       } else {
+         let secondlast = study[study.length - 2];
+         if (secondlast < '0' || secondlast > '9') {
+           study = study.substring(0, study.length - 2);
+         } else {
+           study = study.substring(0, study.length - 1);
+         }
+         subjectval = subjectval + 'A';
        }
      }
      let all = study+subjectval;
