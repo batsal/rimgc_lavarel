@@ -387,7 +387,7 @@ $db = pg_connect('host=127.0.0.1 dbname=rimgc user=devkotab password=');
 <h4><u><b> Biobank </b></u></h4>
 
 <?php
-/*
+
 $db = pg_connect('host=eigdw.research.chop.edu dbname=roberts_imgc_data_integrated user=roberts_imgc_data_integrated_admin password=89k7ac2x');
     $sdg_id = "{$edit -> sdg_id}";
     #echo $sdg_id;
@@ -433,7 +433,7 @@ $db = pg_connect('host=eigdw.research.chop.edu dbname=roberts_imgc_data_integrat
       }
     echo '</table>';
 
-    */
+    
  ?>
 
 
