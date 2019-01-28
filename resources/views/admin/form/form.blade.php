@@ -14,7 +14,7 @@
                   </ol> -->
                 </div>
                  <!-- <div class="col-lg-6 m-t">
-                   <section class="pull-right">                  
+                   <section class="pull-right">
                          <a href="" class="btn btn-primary">Enroll New Subjects</a>&nbsp;&nbsp;
 
                          <a href="{{url('form')}}" class="btn btn-primary">View All enrolled Subjects</a>&nbsp;&nbsp;
@@ -32,7 +32,7 @@
               @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>
               @endforeach
-           
+
           </ul>
       </div>
     @endif
@@ -41,17 +41,17 @@
         <div class="row">
          <div class="col-lg-12">
           <section class="head-f" style="margin-bottom: 10px;">
-            
+
             <div class="col-md-offset-2">
                   <div class="inline text-left" >
-                  <label for="createdBy" class="col-lg-5 text-left control-label">Created BY</label>
+                  <label for="createdBy" class="col-lg-5 text-left control-label">Created By</label>
                   <div class="col-lg-7">
-                    <input type="text" class="form-control" id="createdBy" name="created_by" 
+                    <input type="text" class="form-control" id="createdBy" name="created_by"
                     value="{{ Auth::user()->name }}" disabled="true">
-                   
+
                   </div>
                 </div>
-             
+
                 <div class="inline date text-left">
                   <label for="created_date" class="col-lg-6 text-left control-label">Created Date</label>
                   <div class="col-lg-6">
@@ -68,12 +68,13 @@
           </section>
         </div>
       </div>
+    </div>
 
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-5">
             <section class="panel">
-              
+
                   <div class="panel-body">
                     <div class="col-md-4 text-right">
                       <label for="enrolled">Enrolled</label>
@@ -98,7 +99,7 @@
                         <option value="P" @if(old('subject') =='P') selected @endif>Proband</option>
                         <option value="S" @if(old('subject') =='S') selected @endif>Sibling</option>
                         <option value="O" @if(old('subject') =='O') selected @endif>Other</option>
-                        
+
                     </select>
                   </div>
                   </div>
@@ -112,11 +113,11 @@
                             <input name="affected" id="affected" value="A" type="radio" /> Affected
                       </label>
                       <!--<label class="label_radio" for="radio-02">
-                            <input name="affected" id="radio-02" value="U" type="radio" 
+                            <input name="affected" id="radio-02" value="U" type="radio"
                             @if(old('sample') =='U') checked   @endif/> Unaffected
                       </label>
                       <label class="label_radio" for="radio-03">
-                            <input name="affected" id="radio-03" value="O" type="radio" 
+                            <input name="affected" id="radio-03" value="O" type="radio"
                             @if(old('sample') =='O') checked @endif/> Unknown
                       </label>
                     -->
@@ -138,7 +139,7 @@
                     </div>
 
                     <div class="col-md-6">
-                    <input type="text" class="form-control" id="enrolled_study" 
+                    <input type="text" class="form-control" id="enrolled_study"
                      name="enrolled_study" value="{{ old('enrolled_study') }}" placeholder="Enter IMGC">
                     </div>
                   </div>
@@ -163,11 +164,11 @@
                     </div>
 
                     <div class="col-md-6">
-                      <input type="text" class="form-control" id="enrolled_study_pi" 
-                       name="enrolled_study_pi" value="{{ old('enrolled_study_pi') }}" 
+                      <input type="text" class="form-control" id="enrolled_study_pi"
+                       name="enrolled_study_pi" value="{{ old('enrolled_study_pi') }}"
                        placeholder="Enter Ian Krantz">
                     </div>
-                  
+
                 -->
 
                   <div class="form-group">
@@ -179,7 +180,7 @@
                     <input type="text" class="form-control" id="sampleRecDate" class="datepicker" name="sample_recorded_date" value="{{ old('sample_recorded_date') }}">
                     </div>
                   </div>
-                  
+
 
                   <div class="form-group member_number" style="display: none">
                     <div class="col-md-4 text-right">
@@ -201,6 +202,7 @@
                     </div>
                   </div>
 
+
                   <div class="form-group">
                     <div class="col-md-4 text-right">
                       <label for="other_member">Other Family Member</label>
@@ -211,7 +213,6 @@
                     </div>
                   </div>
 
-                  
 
                   <!--
                   <div class="form-group">
@@ -230,11 +231,11 @@
                         <option value="7" @if(old('family_option') =='7') selected @endif>7</option>
                         <option value="8" @if(old('family_option') =='8') selected @endif>8</option>
                         <option value="9" @if(old('family_option') =='9') selected @endif>9</option>
-                        
+
                     </select>
 
                        <input type="text" class="form-control" id="family_option" name="family_option"
-                       value="{{ old('family_option') }}" required="true"> 
+                       value="{{ old('family_option') }}" required="true">
 
                     </div>
                   </div>
@@ -254,29 +255,29 @@
                           <option value="3" @if(old('number') =='3') selected @endif>3</option>
                       </select>
                     </div> -->
-                 
+
                   <div class="radios">
                     <div class="col-md-4 text-right">
                       <label for="sample">Sample Collected?</label>
                     </div>
                     <div class="col-md-2">
                         <label class="label_radio1" for="radio-01">
-                            <input name="sample" id="radio-01" value="Yes" type="radio" 
+                            <input name="sample" id="radio-01" value="Yes" type="radio"
                             @if(old('sample') =='Yes') checked @endif /> Yes
                         </label></div>
                         <div class="col-md-2">
                         <label class="label_radio1" for="radio-02">
-                            <input name="sample" id="radio-02" value="No" type="radio" 
+                            <input name="sample" id="radio-02" value="No" type="radio"
                             @if(old('sample') =='No') checked @endif/> No
                         </label></div>
                         <div class="col-md-2">
                         <label class="label_radio1" for="radio-03">
-                            <input name="sample" id="radio-03" value="Pending" type="radio" 
+                            <input name="sample" id="radio-03" value="Pending" type="radio"
                             @if(old('sample') =='Pending') checked @endif/> Pending
                         </label></div>
                         <div class="col-md-2">
                         <label class="label_radio1" for="radio-04">
-                            <input name="sample" id="radio-04" value="Failed" type="radio" 
+                            <input name="sample" id="radio-04" value="Failed" type="radio"
                             @if(old('sample') =='Failed') checked @endif/> Failed
                         </label></div>
                     </div>
@@ -308,64 +309,64 @@
                       <div class="col-lg-7">
                         <div class="radios">
                           <label class="label_radio2" for="checkbox-01">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-01" value="1" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('1', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-01" value="1" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('1', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif
-                                                   
-                                                             /> Whole Blood 
+
+                                                             /> Whole Blood
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="2" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('2', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="2" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('2', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Serum
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="3" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('3', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="3" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('3', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Plasma
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="4" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('4', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="4" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('4', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> DNA
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="5" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('5', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="5" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('5', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Cell line (LCL)
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="6" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('6', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="6" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('6', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Tissue
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="7" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('7', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="7" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('7', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Saliva
                           </label>
                           <label class="label_radio2" for="checkbox-02">
-                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="8" type="checkbox" 
-                                                    @if(is_array(old('primary_sample_type')) && 
-                                                            in_array('8', old('primary_sample_type'))) 
-                                                            checked="true" 
+                                                    <input name="primary_sample_type[]" id="primary_sample_type-02" value="8" type="checkbox"
+                                                    @if(is_array(old('primary_sample_type')) &&
+                                                            in_array('8', old('primary_sample_type')))
+                                                            checked="true"
                                                     @endif/> Other
                           </label>
-                          
+
                         </div>
                       </div>
 
@@ -403,27 +404,29 @@
                     </div>
                   </div> -->
 
-                  <div class="col-md-offset-1 col-lg-9">
+                  <div class="col-md-offset-1 col-lg-8">
                       <section class="panel non-chop">
-                        <label>Non Chop Exome </label>
+                        <div class="col-lg-4 text-right">
+                          <label>Non Chop Exome </label>
+                        </div>
                         <div class="panel-body" style="display: inline-block; float: right;">
                             <div class="form-group">
-                              <div class="checkbox"><input type="checkbox" name="non_chop_exome" value="1" 
-                                @if(old('non_chop_exome') == '1' ) checked="true"  @endif> 
+                              <div class="checkbox"><input type="checkbox" name="non_chop_exome" value="1"
+                                @if(old('non_chop_exome') == '1' ) checked="true"  @endif>
                                 <p>Data Transfer Outside Source</p>
                                 <label class="" for="labUsed" style="font-weight: 600; width: 28%">Lab Used</label>
                                 <select class="form-control  m-bot15" name="lab_used" id="lab_used" style="width: 65%;">
                                     <option value="">-----Select-----</option>
-                                    
+
                                     @foreach($lab as $l)
                                         <option value="{{$l->lab_id}}" @if(old('lab_used') ==$l->lab_id) selected @endif>{{$l->lab_name}}</option>
                                     @endforeach
-                                    
+
                                 </select>
                                 <!-- <input class="form-control" id="lab_used"  type="text" name="lab_used"> -->
                               </div>
                           </div>
-                           
+
                         </div>
                       </section>
                   </div>
@@ -433,43 +436,43 @@
                    <label for="project_name" class="col-lg-4 text-right control-label">Project name</label>
                     <div class="radios col-md-7" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name" value="1" type="radio" @if(old('project_name') == '1' ) 
-                                                          checked="true" 
-                                                         
+                                                <input name="project_name" id="project_name" value="1" type="radio" @if(old('project_name') == '1' )
+                                                          checked="true"
+
                                                         @endif /> GRIN
                                             </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name" value="2" type="radio" @if(old('project_name') == '2' ) 
-                                                          checked="true" 
+                                                <input name="project_name" id="project_name" value="2" type="radio" @if(old('project_name') == '2' )
+                                                          checked="true"
                                                         @elseif(empty(old('project_name')))
                                                          checked="true"
                                                         @endif/> RIMGC
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name" value="3" type="radio" @if(old('project_name') == '3' ) 
-                                                          checked="true" 
+                                                <input name="project_name" id="project_name" value="3" type="radio" @if(old('project_name') == '3' )
+                                                          checked="true"
 
-                                                        @endif/> EGRP (Ingo's epilepsy) 
+                                                        @endif/> EGRP (Ingo's epilepsy)
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name-02" value="4" type="radio" @if(old('project_name') == '4' ) 
-                                                          checked="true" 
+                                                <input name="project_name" id="project_name-02" value="4" type="radio" @if(old('project_name') == '4' )
+                                                          checked="true"
 
                                                         @endif/> PediSeq
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name-02" value="5" type="radio" @if(old('project_name') == '5' ) 
-                                                          checked="true" 
+                                                <input name="project_name" id="project_name-02" value="5" type="radio" @if(old('project_name') == '5' )
+                                                          checked="true"
 
-                                                        @endif/> Hearing Loss (Ian) 
+                                                        @endif/> Hearing Loss (Ian)
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="project_name" id="project_name-02" value="6" type="radio" @if(old('project_name') == '6' ) 
-                                                          checked="true" 
+                                                <input name="project_name" id="project_name-02" value="6" type="radio" @if(old('project_name') == '6' )
+                                                          checked="true"
 
                                                         @endif/> CdLS
                                                       </label>
-                     
+
                     </div>
                 </div>
                 -->
@@ -478,30 +481,30 @@
                    <label for="status_affected_member" class="col-lg-4 text-right control-label">Affected status for family members</label>
                     <div class="radios col-lg-7" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="project_name">
-                                                <input name="status_affected_member" id="status_affected_member-01" value="Unaffected" type="radio" @if(old('project_name') == 'Unaffected' ) 
-                                                          checked="true" 
+                                                <input name="status_affected_member" id="status_affected_member-01" value="Unaffected" type="radio" @if(old('project_name') == 'Unaffected' )
+                                                          checked="true"
                                                   @elseif(empty(old('status_affected_member')))
-                                                         checked="true"       
+                                                         checked="true"
                                                         @endif /> Unaffected
                                             </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="status_affected_member" id="status_affected_member-02" value="Affected" type="radio" @if(old('status_affected_member') == 'Affected' ) 
-                                                          checked="true" 
-                                                        
+                                                <input name="status_affected_member" id="status_affected_member-02" value="Affected" type="radio" @if(old('status_affected_member') == 'Affected' )
+                                                          checked="true"
+
                                                         @endif/> Affected
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="status_affected_member" id="status_affected_member-03" value="Unknown" type="radio" @if(old('status_affected_member') == 'Unknown' ) 
-                                                          checked="true" 
-                                                        @endif/> Unknown 
+                                                <input name="status_affected_member" id="status_affected_member-03" value="Unknown" type="radio" @if(old('status_affected_member') == 'Unknown' )
+                                                          checked="true"
+                                                        @endif/> Unknown
                                                       </label>
-                    
+
                     </div>
                 </div>
 
  -->
 
-                
+
                   </div>
                   <div class="form-group primary_sample_type_other" style="display: none;">
                       <div class="form-group" >
@@ -511,7 +514,7 @@
                         </div>
                       </div>
                   </div>
-               
+
                 <!--div class="form-group">
                   <label for="sdgId" class="col-lg-4 text-right control-label">Passage #</label>
                   <div class="col-lg-6">
@@ -539,58 +542,58 @@
                   <div class="col-lg-7">
                     <div class="radios">
                       <label class="label_radio" for="checkbox-01">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-01" value="1" 
-                                                type="checkbox" 
-                                                @if(is_array(old('derived_sample_type')) && 
-                                              in_array('1', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-01" value="1"
+                                                type="checkbox"
+                                                @if(is_array(old('derived_sample_type')) &&
+                                              in_array('1', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif
-                                                         /> Whole Blood 
+                                                         /> Whole Blood
                                             </label>
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="2" type="checkbox" 
-                                      @if(is_array(old('derived_sample_type')) && 
-                                      in_array('2', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="2" type="checkbox"
+                                      @if(is_array(old('derived_sample_type')) &&
+                                      in_array('2', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif/> Serum
                                             </label>
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="3" 
-                                                type="checkbox" 
-                                                @if(is_array(old('derived_sample_type')) && 
-                                                            in_array('3', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="3"
+                                                type="checkbox"
+                                                @if(is_array(old('derived_sample_type')) &&
+                                                            in_array('3', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif/> Plasma
                                             </label>
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="4" type="checkbox" 
-                                                @if(is_array(old('derived_sample_type')) && 
-                                                            in_array('4', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="4" type="checkbox"
+                                                @if(is_array(old('derived_sample_type')) &&
+                                                            in_array('4', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif/> DNA
                                             </label>
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="5" type="checkbox" 
-                                                @if(is_array(old('derived_sample_type')) && 
-                                                            in_array('5', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="5" type="checkbox"
+                                                @if(is_array(old('derived_sample_type')) &&
+                                                            in_array('5', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif/> Cell line (LCL)
                                             </label>
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="6" type="checkbox" @if(old('derived_sample_type') == '6' ) 
-                                                          checked="true" 
-                                                       
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="6" type="checkbox" @if(old('derived_sample_type') == '6' )
+                                                          checked="true"
+
                                                         @endif/> Tissue
                                             </label>
-                      
+
                       <label class="label_radio" for="checkbox-02">
-                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="7" type="checkbox" 
-                                                @if(is_array(old('derived_sample_type')) && 
-                                                            in_array('7', old('derived_sample_type'))) 
-                                                            checked="true" 
+                                                <input name="derived_sample_type[]" id="primary_sample_type-02" value="7" type="checkbox"
+                                                @if(is_array(old('derived_sample_type')) &&
+                                                            in_array('7', old('derived_sample_type')))
+                                                            checked="true"
                                                     @endif/> Other
                       </label>
-                      
+
                     </div>
                   </div>
                    <div class="form-group other_derived_sample" style="display: none;">
@@ -602,24 +605,24 @@
 
 
 
-                <div class="form-group">                 
+                <div class="form-group">
                   <div class="radios">
                     <div class="col-md-4 text-right">
                       <label for="genomic_data">Genomic Data Obtained?</label>
                     </div>
                     <div class="col-md-2">
                         <label class="label_radio" for="radio-01">
-                            <input name="genomic_data" id="radio-01" value="Yes" type="radio" 
+                            <input name="genomic_data" id="radio-01" value="Yes" type="radio"
                             @if(old('genomic_data') =='Yes') checked @endif /> Yes
                         </label></div>
                         <div class="col-md-2">
                         <label class="label_radio" for="radio-02">
-                            <input name="genomic_data" id="radio-02" value="No" type="radio" 
+                            <input name="genomic_data" id="radio-02" value="No" type="radio"
                             @if(old('sample') =='No') checked @endif/> No
                         </label></div>
                         <div class="col-md-2">
                         <label class="label_radio" for="radio-03">
-                            <input name="genomic_data" id="radio-03" value="Pending" type="radio" 
+                            <input name="genomic_data" id="radio-03" value="Pending" type="radio"
                             @if(old('genomic_data') =='Pending') checked @endif/> Pending
                         </label></div>
 
@@ -633,26 +636,26 @@
                    Genomic Data Obtained?</label>
                     <div class="radios col-md-2">
                       <label class="label_radio" for="genomic_data">
-                                                <input name="genomic_data" id="status_affected_member-01" value="Yes" type="radio" @if(old('genomic_data') == 'Yes' ) 
-                                                          checked="true" 
-     
+                                                <input name="genomic_data" id="status_affected_member-01" value="Yes" type="radio" @if(old('genomic_data') == 'Yes' )
+                                                          checked="true"
+
                                                         @endif /> Yes
                                             </label></div>
                       <div class="col-md-2">
                       <label class="label_radio" for="genomic_data">
-                                                <input name="genomic_data" id="status_affected_member-02" value="No" type="radio" @if(old('genomic_data') == 'No' ) 
-                                                          checked="true" 
-                                                        
+                                                <input name="genomic_data" id="status_affected_member-02" value="No" type="radio" @if(old('genomic_data') == 'No' )
+                                                          checked="true"
+
                                                         @endif/> No
                                                       </label></div>
                       <div class="col-md-2">
                       <label class="label_radio" for="genomic_data">
-                                                <input name="genomic_data" id="status_affected_member-03" value="Pending" type="radio" @if(old('genomic_data') == 'Pending' ) 
-                                                          checked="true" 
-                                                        @endif/> Pending 
+                                                <input name="genomic_data" id="status_affected_member-03" value="Pending" type="radio" @if(old('genomic_data') == 'Pending' )
+                                                          checked="true"
+                                                        @endif/> Pending
                                                       </label></div>
                   -->
-                    
+
 
 
 
@@ -665,72 +668,72 @@
 
                  <div class="form-group">
                    <label for="status_affected_member" class="col-md-4 text-right control-label">Type of test data available</label>
-                    <div class="radios col-lg-6" style="display: inline-block; margin-left: 20px;">
+                    <div class="radios" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="available_test_data">
-                                                <input name="available_test_data[]" id="available_test_data-01" value="1" type="checkbox" 
-                                                @if(is_array(old('available_test_data')) && 
-                                                            in_array('1', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif 
+                                                <input name="available_test_data[]" id="available_test_data-01" value="1" type="checkbox"
+                                                @if(is_array(old('available_test_data')) &&
+                                                            in_array('1', old('available_test_data')))
+                                                            checked="true"
+
+                                                        @endif
                                                 /> Whole Exome Sequencing
                                             </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-02" value="2" type="checkbox" 
-                                                @if(is_array(old('available_test_data')) && 
-                                                            in_array('2', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
+                                                <input name="available_test_data[]" id="available_test_data-02" value="2" type="checkbox"
+                                                @if(is_array(old('available_test_data')) &&
+                                                            in_array('2', old('available_test_data')))
+                                                            checked="true"
+
                                                         @endif
                                                         /> Whole Genome Sequencing
                                                       </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-03" value="3" type="checkbox" 
-                                                @if(is_array(old('available_test_data')) && 
-                                                            in_array('3', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
+                                                <input name="available_test_data[]" id="available_test_data-03" value="3" type="checkbox"
+                                                @if(is_array(old('available_test_data')) &&
+                                                            in_array('3', old('available_test_data')))
+                                                            checked="true"
+
                                                         @endif
 
-                                                /> Panel 
+                                                /> Panel
                                                       </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-04" value="4" type="checkbox" @if(is_array(old('available_test_data')) && 
-                                                            in_array('4', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/> Array 
+                                                <input name="available_test_data[]" id="available_test_data-04" value="4" type="checkbox" @if(is_array(old('available_test_data')) &&
+                                                            in_array('4', old('available_test_data')))
+                                                            checked="true"
+
+                                                        @endif/> Array
                                                       </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-05" value="5" type="checkbox" @if(is_array(old('available_test_data')) && 
-                                                            in_array('5', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/>  Other NGS 
+                                                <input name="available_test_data[]" id="available_test_data-05" value="5" type="checkbox" @if(is_array(old('available_test_data')) &&
+                                                            in_array('5', old('available_test_data')))
+                                                            checked="true"
+
+                                                        @endif/>  Other NGS
                                                       </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-05" value="6" type="checkbox" @if(is_array(old('available_test_data')) && 
-                                                            in_array('6', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/>  RNASeq 
+                                                <input name="available_test_data[]" id="available_test_data-05" value="6" type="checkbox" @if(is_array(old('available_test_data')) &&
+                                                            in_array('6', old('available_test_data')))
+                                                            checked="true"
+
+                                                        @endif/>  RNASeq
                                                       </label>
 
                       <label class="label_radio" for="project_name">
-                                                <input name="available_test_data[]" id="available_test_data-05" value="7" type="checkbox" @if(is_array(old('available_test_data')) && 
-                                                            in_array('7', old('available_test_data'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/>  Transcriptomic 
+                                                <input name="available_test_data[]" id="available_test_data-05" value="7" type="checkbox" @if(is_array(old('available_test_data')) &&
+                                                            in_array('7', old('available_test_data')))
+                                                            checked="true"
+
+                                                        @endif/>  Transcriptomic
                                                       </label>
-                    
+
                     </div>
-                </div> 
+                </div>
 
                 <div class="form-group">
                   <label for="sdgId" class="col-lg-4 text-right control-label">Other type of test data</label>
@@ -750,32 +753,32 @@
                    <label for="status_affected_member" class="col-md-4 text-right control-label">Platform</label>
                     <div class="col-md-7 radios" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="platform">
-                                                <input name="platform" id="platform-01" value="1" type="radio" @if(old('platform') == '1' ) 
-                                                          checked="true"      
+                                                <input name="platform" id="platform-01" value="1" type="radio" @if(old('platform') == '1' )
+                                                          checked="true"
                                                         @endif /> Illumina Omni-1630
                                             </label>
                       <label class="label_radio" for="platform">
-                                                <input name="platform" id="platform-02" value="2" type="radio" @if(old('platform') == '2' ) 
-                                                          checked="true" 
-                                                        
+                                                <input name="platform" id="platform-02" value="2" type="radio" @if(old('platform') == '2' )
+                                                          checked="true"
+
                                                         @endif/> Illumina 610507
                                                       </label>
                       <label class="label_radio" for="platform">
-                                                <input name="platform" id="platform-03" value="3" type="radio" @if(old('platform') == '3' ) 
-                                                          checked="true" 
-                                                        @endif/> Illumina850k_CytoSNP318 
+                                                <input name="platform" id="platform-03" value="3" type="radio" @if(old('platform') == '3' )
+                                                          checked="true"
+                                                        @endif/> Illumina850k_CytoSNP318
                                                       </label>
                        <label class="label_radio" for="platform">
-                                                <input name="platform" id="platform-04" value="4" type="radio" @if(old('platform') == '4' ) 
-                                                          checked="true" 
-                                                        @endif/>  Illumina Omni-5293 
+                                                <input name="platform" id="platform-04" value="4" type="radio" @if(old('platform') == '4' )
+                                                          checked="true"
+                                                        @endif/>  Illumina Omni-5293
                                                       </label>
                        <label class="label_radio" for="platform">
-                                                <input name="platform" id="platform-05" value="5" type="radio" @if(old('platform') == '5' ) 
-                                                          checked="true" 
-                                                        @endif/> Other 
+                                                <input name="platform" id="platform-05" value="5" type="radio" @if(old('platform') == '5' )
+                                                          checked="true"
+                                                        @endif/> Other
                                                       </label>
-                    
+
                     </div>
                 </div>
 
@@ -791,15 +794,15 @@
 
           <div class="col-lg-6">
             <section class="panel">
-             
+
               <div class="panel-body">
-                
+
                   <div class="form-group">
                     <label for="inputEmail1" class="col-lg-3 text-right control-label">Study ID</label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" id="study_id"  name="study_id" 
+                      <input type="text" class="form-control" id="study_id"  name="study_id"
                       value="@if(old('study_id')){{ old('study_id') }} @else RIMGC{{str_pad($maxFamilyId, 6, 0, STR_PAD_LEFT)}}@endif" required="true">
-                     
+
                     </div>
                   </div>
                   <div class="form-group">
@@ -820,24 +823,24 @@
                       <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}" required="true">
                     </div>
                   </div>
-                 
+
                   <div class="form-group">
                     <label for="dob" class="col-lg-3 text-right control-label">DOB</label>
                     <div class="col-lg-3">
-                      
+
                       <input type="text" class="form-control" id="dob" class="datepicker"  name="dob" value="{{ old('dob') }}" required="true">
                     </div>
                     <div class="col-lg-3">
                        <label for="sex" class="col-lg-4 text-right control-label">Sex</label>
                     <select class="col-md-8 m-bot15" name="gender" style="border: 1px solid #ccc; color: #777; font-size: 11px; height: 22px;">
-                          <option value="Male"  @if(old('gender') == 'Male' ) 
-                                                          selected="true" 
+                          <option value="Male"  @if(old('gender') == 'Male' )
+                                                          selected="true"
                                                         @endif>Male</option>
-                        <option value="Female"  @if(old('gender') == 'Female' ) 
-                                                          selected="true" 
+                        <option value="Female"  @if(old('gender') == 'Female' )
+                                                          selected="true"
                                                         @endif>Female</option>
-                        <option value="Other"  @if(old('gender') == 'Other' ) 
-                                                          selected="true" 
+                        <option value="Other"  @if(old('gender') == 'Other' )
+                                                          selected="true"
                                                         @endif>Other</option>
                     </select>
                   </div>
@@ -847,64 +850,64 @@
                     <div class="col-lg-6">
                       <select class="form-control  m-bot15" name="other_gender" id="gender">
                                                 <option value="">---Select---</option>
-                                                <option value="1" 
-                                                          @if(old('other_gender') == '1' ) 
-                                                            selected="true" 
+                                                <option value="1"
+                                                          @if(old('other_gender') == '1' )
+                                                            selected="true"
                                                           @endif
                                                 >Not tested</option>
-                                                <option value="2" 
-                                                          @if(old('other_gender') == '2' ) 
-                                                                        selected="true" 
+                                                <option value="2"
+                                                          @if(old('other_gender') == '2' )
+                                                                        selected="true"
                                                                       @endif
                                                 >XX genotype/Female</option>
                                                 <option value="3"
-                                                      @if(old('other_gender') == '3' ) 
-                                                                    selected="true" 
+                                                      @if(old('other_gender') == '3' )
+                                                                    selected="true"
                                                                   @endif
                                                 >XY genotype/Male</option>
                                                 <option value="4"
-                                                @if(old('other_gender') == '4' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '4' )
+                                                              selected="true"
                                                             @endif
                                                 >XXY Klinefelter's Syndrome</option>
                                                 <option value="5"
-                                                @if(old('other_gender') == '5' ) 
-                                                             selected="true" 
+                                                @if(old('other_gender') == '5' )
+                                                             selected="true"
                                                             @endif
                                                 >XO Turner's Syndrome</option>
                                                 <option value="6"
-                                                @if(old('other_gender') == '6' ) 
-                                                              selected="true"  
+                                                @if(old('other_gender') == '6' )
+                                                              selected="true"
                                                             @endif
                                                 >XXXY syndrome</option>
                                                 <option value="7"
-                                                @if(old('other_gender') == '7' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '7' )
+                                                              selected="true"
                                                             @endif
                                                 >XXYY syndrome</option>
                                                 <option value="8"
-                                                  @if(old('other_gender') == '8' ) 
-                                                               selected="true"  
+                                                  @if(old('other_gender') == '8' )
+                                                               selected="true"
                                                               @endif
                                                 >Mosaic including XXXXY</option>
                                                 <option value="9"
-                                                @if(old('other_gender') == '9' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '9' )
+                                                              selected="true"
                                                             @endif
                                                 >Penta X syndrome</option>
                                                 <option value="10"
-                                                @if(old('other_gender') == '10' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '10' )
+                                                              selected="true"
                                                             @endif
                                                 >XYY</option>
                                                 <option value="11"
-                                                @if(old('other_gender') == '11' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '11' )
+                                                              selected="true"
                                                             @endif
                                                 >Unknown</option>
                                                  <option value="12"
-                                                @if(old('other_gender') == '12' ) 
-                                                              selected="true" 
+                                                @if(old('other_gender') == '12' )
+                                                              selected="true"
                                                             @endif
                                                 >Other</option>
                       </select>
@@ -914,7 +917,7 @@
                   <div class="form-group additional_other_gender" style="display: none">
                     <label for="sdgId" class="col-lg-3 text-right control-label">Please specify Other gender</label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" id="additional_other_gender" 
+                      <input type="text" class="form-control" id="additional_other_gender"
                       name="additional_other_gender" value="{{ old('additional_other_gender') }}">
                     </div>
                   </div>
@@ -931,19 +934,19 @@
                     <div class="col-lg-6">
                       <div class="radios">
                         <label class="label_radio" for="radio-01">
-                                                  <input name="dna_biobank" id="dna_biobank-01" value="Yes" type="radio" @if(old('dna_biobank') == 'Yes' ) 
-                                                            checked="true" 
+                                                  <input name="dna_biobank" id="dna_biobank-01" value="Yes" type="radio" @if(old('dna_biobank') == 'Yes' )
+                                                            checked="true"
                                                           @endif
                                                            /> Yes
                                               </label>
                         <label class="label_radio" for="radio-02">
-                                                  <input name="dna_biobank" id="dna_biobank-02" value="No" type="radio" @if(old('dna_biobank') == 'No' ) 
-                                                            checked="true" 
+                                                  <input name="dna_biobank" id="dna_biobank-02" value="No" type="radio" @if(old('dna_biobank') == 'No' )
+                                                            checked="true"
                                                           @elseif(empty(old('dna_biobank')))
                                                            checked="true"
                                                           @endif/> No
                                               </label>
-                        
+
 
 
                       </div>
@@ -954,69 +957,69 @@
                       <div class="col-lg-6">
                         <div class="radios">
                         <label class="label_radio" for="lcl_biobank1">
-                                    <input name="lcl_biobank" id="lcl_biobank-01" value="Yes" type="radio" @if(old('lcl_biobank') == 'Yes' ) 
-                                                          checked="true"  
+                                    <input name="lcl_biobank" id="lcl_biobank-01" value="Yes" type="radio" @if(old('lcl_biobank') == 'Yes' )
+                                                          checked="true"
                                                           @endif /> Yes
                                               </label>
                         <label class="label_radio" for="lcl_biobank2">
                                     <input name="lcl_biobank" id="lcl_biobank-02" value="No" type="radio" @if(old('lcl_biobank') == 'No' )
-                                                            checked="true" 
+                                                            checked="true"
                                                           @elseif(empty(old('lcl_biobank')))
                                                            checked="true"
                                                           @endif/> No
-                       
+
                       </div>
                     </div>
                </div>
-                </div> 
+                </div>
                   <div class="form-group">
                     <label for="race" class="col-lg-3 text-right control-label">Race</label>
                     <div class="col-lg-4">
                       <select class="form-control  m-bot15" name="race">
                                                 <option value="">---Select---</option>
-                                                <option value="1" 
-                                                          @if(old('race') == '1' ) 
-                                                            selected="true" 
+                                                <option value="1"
+                                                          @if(old('race') == '1' )
+                                                            selected="true"
                                                           @endif
                                                 >American Indian or Alaska Native</option>
-                                                <option value="2" 
-                                                          @if(old('race') == '2' ) 
-                                                                        selected="true" 
+                                                <option value="2"
+                                                          @if(old('race') == '2' )
+                                                                        selected="true"
                                                                       @endif
                                                 >Asian</option>
                                                 <option value="3"
-                                                      @if(old('race') == '3' ) 
-                                                                    selected="true" 
+                                                      @if(old('race') == '3' )
+                                                                    selected="true"
                                                                   @endif
                                                 >Black or African American</option>
                                                 <option value="4"
-                                                @if(old('race') == '4' ) 
-                                                              selected="true" 
+                                                @if(old('race') == '4' )
+                                                              selected="true"
                                                             @endif
                                                 >Native Hawaiian or Other Pacific Islander</option>
                                                 <option value="5"
-                                                @if(old('race') == '5' ) 
-                                                             selected="true" 
+                                                @if(old('race') == '5' )
+                                                             selected="true"
                                                             @endif
                                                 >White</option>
                                                 <option value="6"
-                                                @if(old('race') == '6' ) 
-                                                              selected="true"  
+                                                @if(old('race') == '6' )
+                                                              selected="true"
                                                             @endif
                                                 >Multiple race</option>
                                                 <option value="7"
-                                                @if(old('race') == '7' ) 
-                                                              selected="true" 
+                                                @if(old('race') == '7' )
+                                                              selected="true"
                                                             @endif
                                                 >Hispanic/Latino</option>
                                                 <option value="8"
-                                                  @if(old('race') == '8' ) 
-                                                               selected="true"  
+                                                  @if(old('race') == '8' )
+                                                               selected="true"
                                                               @endif
                                                 >Unknown</option>
                                                 <option value="9"
-                                                @if(old('race') == '9' ) 
-                                                              selected="true" 
+                                                @if(old('race') == '9' )
+                                                              selected="true"
                                                             @endif
                                                 >Not available</option>
                       </select>
@@ -1025,24 +1028,24 @@
                     <div class="col-lg-4">
                     <select class="form-control  m-bot15" name="ethnicity">
                                             <option value="">---Select---</option>
-                                            <option value="1" 
-                                                  @if(old('ethnicity') == '1' ) 
-                                                      selected="true" 
+                                            <option value="1"
+                                                  @if(old('ethnicity') == '1' )
+                                                      selected="true"
                                                   @endif>
                                             Hispanic/latino</option>
-                                            <option value="2" 
-                                                  @if(old('ethnicity') == '2' ) 
-                                                      selected="true" 
+                                            <option value="2"
+                                                  @if(old('ethnicity') == '2' )
+                                                      selected="true"
                                                   @endif>
                                             Non-Hispanic/latino</option>
-                                            <option value="3" 
-                                                 @if(old('ethnicity') == '3' ) 
-                                                    selected="true" 
+                                            <option value="3"
+                                                 @if(old('ethnicity') == '3' )
+                                                    selected="true"
                                                   @endif>
                                             Unknown</option>
-                                            <option value="4" 
-                                                  @if(old('ethnicity') == '4' ) 
-                                                    selected="true" 
+                                            <option value="4"
+                                                  @if(old('ethnicity') == '4' )
+                                                    selected="true"
                                                   @endif>
                                             Not available</option>
                     </select>
@@ -1053,30 +1056,30 @@
                     <div class="col-lg-6">
                     <select class="form-control  m-bot15" name="ethnicity_follow_up">
                                             <option value="">---Select---</option>
-                                            <option value="1" 
-                                                  @if(old('ethnicity_follow_up') == '1' ) 
-                                                      selected="true" 
+                                            <option value="1"
+                                                  @if(old('ethnicity_follow_up') == '1' )
+                                                      selected="true"
                                                   @endif>
                                             Ashkenazi Jewish</option>
-                                            <option value="2" 
-                                                  @if(old('ethnicity_follow_up') == '2' ) 
-                                                      selected="true" 
+                                            <option value="2"
+                                                  @if(old('ethnicity_follow_up') == '2' )
+                                                      selected="true"
                                                   @endif>
                                             Amish</option>
-                                            <option value="3" 
-                                                 @if(old('ethnicity_follow_up') == '3' ) 
-                                                    selected="true" 
+                                            <option value="3"
+                                                 @if(old('ethnicity_follow_up') == '3' )
+                                                    selected="true"
                                                   @endif>
                                              French Canadian</option>
-                                            <option value="4" 
-                                                  @if(old('ethnicity_follow_up') == '4' ) 
-                                                    selected="true" 
+                                            <option value="4"
+                                                  @if(old('ethnicity_follow_up') == '4' )
+                                                    selected="true"
                                                   @endif>
                                            None of the above</option>
-                                           <option value="5" 
-                                                  @if(old('ethnicity_follow_up') == '5' ) 
+                                           <option value="5"
+                                                  @if(old('ethnicity_follow_up') == '5' )
 
-                                                    selected="true" 
+                                                    selected="true"
                                                   @endif>
                                            Unknown</option>
                     </select>
@@ -1088,30 +1091,30 @@
                        <div class="radios" style="display: inline-block; margin-left: 20px;">
                             <label class="label_radio" for="lcl_biobank1">
                                                   <input name="primary_language[]" id="primary_language-01" value="English" type="checkbox"
-                                                  @if(is_array(old('primary_language')) && 
-                                                  in_array('English', old('primary_language'))) 
-                                                            checked="true" 
-                                                           
+                                                  @if(is_array(old('primary_language')) &&
+                                                  in_array('English', old('primary_language')))
+                                                            checked="true"
+
                                                           @endif /> English
                             </label>
                             <label class="label_radio" for="lcl_biobank2">
-                                                  <input name="primary_language[]" id="primary_language-02" value="Spanish" type="checkbox" @if(is_array(old('primary_language')) && 
-                                                  in_array('Spanish', old('primary_language'))) 
-                                                            checked="true" 
-                                                           
+                                                  <input name="primary_language[]" id="primary_language-02" value="Spanish" type="checkbox" @if(is_array(old('primary_language')) &&
+                                                  in_array('Spanish', old('primary_language')))
+                                                            checked="true"
+
                                                           @endif/> Spanish
                            </label>
                             <label class="label_radio" for="lcl_biobank2">
                                                   <input name="primary_language[]" id="primary_language-03" value="Other" type="checkbox"
-                                                  @if(is_array(old('primary_language')) && 
-                                                  in_array('Other', old('primary_language'))) 
-                                                            checked="true" 
-                                                           
+                                                  @if(is_array(old('primary_language')) &&
+                                                  in_array('Other', old('primary_language')))
+                                                            checked="true"
+
                                                           @endif/> Other
                            </label>
-                       
+
                       </div>
-                    
+
                   </div>
                    <div class="form-group other_language" style="display: none">
                     <label for="other_language" class="col-lg-3 text-right control-label">Other Language</label>
@@ -1243,38 +1246,38 @@
                    <label for="status_affected_member" class="col-md-3 text-right control-label">File types available</label>
                     <div class="radios col-md-7" style="display: inline-block; margin-left: 20px;">
                       <label class="label_radio" for="project_name">
-                                                <input name="file_type_available[]" id="file_type_available-01" value="BAM" type="checkbox" 
-                                                @if(is_array(old('file_type_available')) && 
-                                                            in_array('BAM', old('file_type_available'))) 
-                                                            checked="true" 
-                                                         
+                                                <input name="file_type_available[]" id="file_type_available-01" value="BAM" type="checkbox"
+                                                @if(is_array(old('file_type_available')) &&
+                                                            in_array('BAM', old('file_type_available')))
+                                                            checked="true"
+
                                                         @endif /> BAM
                                             </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="file_type_available[]" id="file_type_available-02" value="FASTQ" type="checkbox" 
-                                                @if(is_array(old('file_type_available')) && 
-                                                            in_array('FASTQ', old('file_type_available'))) 
-                                                            checked="true" 
-                                                         
+                                                <input name="file_type_available[]" id="file_type_available-02" value="FASTQ" type="checkbox"
+                                                @if(is_array(old('file_type_available')) &&
+                                                            in_array('FASTQ', old('file_type_available')))
+                                                            checked="true"
+
                                                         @endif/> FASTQ
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="file_type_available[]" id="file_type_available-03" value="VCF" type="checkbox" 
-                                                @if(is_array(old('file_type_available')) && 
-                                                            in_array('VCF', old('file_type_available'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/> VCF 
+                                                <input name="file_type_available[]" id="file_type_available-03" value="VCF" type="checkbox"
+                                                @if(is_array(old('file_type_available')) &&
+                                                            in_array('VCF', old('file_type_available')))
+                                                            checked="true"
+
+                                                        @endif/> VCF
                                                       </label>
                       <label class="label_radio" for="project_name">
-                                                <input name="file_type_available[]" id="file_type_available-03" value="GVCF" type="checkbox" 
-                                                @if(is_array(old('file_type_available')) && 
-                                                            in_array('GVCF', old('file_type_available'))) 
-                                                            checked="true" 
-                                                         
-                                                        @endif/> GVCF 
+                                                <input name="file_type_available[]" id="file_type_available-03" value="GVCF" type="checkbox"
+                                                @if(is_array(old('file_type_available')) &&
+                                                            in_array('GVCF', old('file_type_available')))
+                                                            checked="true"
+
+                                                        @endif/> GVCF
                                                       </label>
-                    
+
                     </div>
                 </div>
 
@@ -1305,7 +1308,7 @@
         </div>
       </div>
       <!-- Inline form-->
-      
+
       <div class="container-fluid text-form">
         <div class="row">
           <div class="col-md-12">
@@ -1314,7 +1317,7 @@
         </div>
       </div>
 
-      <div class="container-fluid text-form concent">
+      <div class="container-fluid text-form consent">
         <div class="row">
           <div class="col-md-12">
            @include('admin.form.consent_form')
@@ -1386,7 +1389,7 @@ display:block;
 @endsection
 @section('script')
 <script type="text/javascript">
-  
+
   $(document).ready(function() {
   $('.tabs .tab-links a').on('click', function(e)  {
   var currentAttrValue = $(this).attr('href');
@@ -1399,7 +1402,21 @@ display:block;
 
   $("#subject").on('change', ()=>{
      let subjectval = $("#subject").val();
-     let study = $("#study_id").val().slice(1);
+     let study = $("#study_id").val();
+     let lastchar = study[study.length - 1];
+     if (lastchar < '0' || lastchar > '9') {
+       if (lastchar != 'A') {
+         study = study.substring(0, study.length - 1);
+       } else {
+         let secondlast = study[study.length - 2];
+         if (secondlast < '0' || secondlast > '9') {
+           study = study.substring(0, study.length - 2);
+         } else {
+           study = study.substring(0, study.length - 1);
+         }
+         subjectval = subjectval + 'A';
+       }
+     }
      let all = study+subjectval;
       $("#study_id").val(all);
   });
@@ -1408,4 +1425,3 @@ display:block;
 </script>
 
 @endsection
-
