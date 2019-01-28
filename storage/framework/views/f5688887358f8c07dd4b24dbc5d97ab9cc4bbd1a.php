@@ -434,8 +434,8 @@ $db = pg_connect('host=eigdw.research.chop.edu dbname=roberts_imgc_data_integrat
         echo "<tr>No samples in the Biobank yet.</tr>";
       }
     echo '</table>';
+*/
 
-    */
  ?>
 
 
