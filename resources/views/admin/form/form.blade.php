@@ -70,8 +70,6 @@
       </div>
     </div>
 
-      <h4><u><b> Demographics </b></u></h4>
-
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-5">
@@ -1319,7 +1317,7 @@
         </div>
       </div>
 
-      <div class="container-fluid text-form concent">
+      <div class="container-fluid text-form consent">
         <div class="row">
           <div class="col-md-12">
            @include('admin.form.consent_form')

@@ -69,8 +69,6 @@
       </div>
     </div>
 
-      <h4><u><b> Demographics </b></u></h4>
-
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-5">
@@ -1318,7 +1316,7 @@
         </div>
       </div>
 
-      <div class="container-fluid text-form concent">
+      <div class="container-fluid text-form consent">
         <div class="row">
           <div class="col-md-12">
            <?php echo $__env->make('admin.form.consent_form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
