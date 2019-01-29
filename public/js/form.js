@@ -78,12 +78,18 @@ var form = (function() {
   {
     $("select[name='subject']").on("change",function(){
           subject = $(this).find('option:selected').val();
+          $('#affected_status').css('display', 'block');
           if(family_validate.includes(subject)){
-            if(subject=='O') $('.other_member').css('display','block');
-            $('.member_number').css('display','block');
+            if(subject=='O') {
+              $('.other_member').css('display','block');
+              $('.member_number').css('display','block');
+            }
           } else {
             $('.member_number').css('display','none');
             $('.other_member').css('display','none');
+            if (subject == 'P') {
+              $('#affected_status').css('display', 'none');
+            }
           }
     });
 
