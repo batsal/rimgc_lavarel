@@ -1098,14 +1098,14 @@ public function searchandlist1(PatientInfoRepo $patientInfo){
 
     }
 
-
+    // Created by Acheev Bhagat
     public function sample_requests(Request $request,$id)
     {
         $request->user()->authorizeRoles(['manager','admin']);
         $edit = PatientInfoRepo::with('test')->where('study_id',$id)->first();
 
         $lab = LabUsedRepo::all();
-        return view("admin.form.sample_requests",compact(array('edit','id','lab')));
+        return view("admin.form.sample_requests", compact(array('edit','id','lab')));
 
     }
 
