@@ -52,6 +52,13 @@
                           <label for="study_id" class="col-md-6 control-label">Study ID</label>
                           <div class="col-md-6"><h5>{{$edit -> study_id}}</h5></div>
                         </div>
+                        <div class="col-md-4 inline text-left">
+                          <div class="col-md-6"><h5>
+                            <a href="{{route('form.sample_requests' ,$edit -> study_id)}}">
+                              View Sample Requests
+                            </a>
+                          </h5></div>
+                        </div>
                       </div>
                   </section>
         </div>
@@ -387,7 +394,7 @@ $db = pg_connect('host=127.0.0.1 dbname=rimgc user=devkotab password=');
 <h4><u><b> Biobank </b></u></h4>
 
 <?php
-
+/*
 $db = pg_connect('host=eigdw.research.chop.edu dbname=roberts_imgc_data_integrated user=roberts_imgc_data_integrated_admin password=89k7ac2x');
     $sdg_id = "{$edit -> sdg_id}";
     #echo $sdg_id;
@@ -432,8 +439,8 @@ $db = pg_connect('host=eigdw.research.chop.edu dbname=roberts_imgc_data_integrat
         echo "<tr>No samples in the Biobank yet.</tr>";
       }
     echo '</table>';
+*/
 
-    
  ?>
 
 
