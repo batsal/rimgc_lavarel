@@ -1,8 +1,8 @@
-@extends("admin.layout.main")
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-<form name="research" class="form-horizontal" method="post" role="form" action='{{route("form.update",$id)}}'>
-  {{ csrf_field() }}
+<form name="research" class="form-horizontal" method="post" role="form" action='<?php echo e(route("form.update",$id)); ?>'>
+  <?php echo e(csrf_field()); ?>
+
   <div class="row">
     <div class="container-fluid">
       <div class="col-lg-6 m-t">
@@ -15,27 +15,27 @@
       </div>
       <div class="col-lg-6 m-t">
         <section class="pull-right">
-          <a href="{{route('form.create')}}" class="btn btn-primary">Enroll New Subjects</a>&nbsp;&nbsp;
-          <a href="{{route('form.index')}}" class="btn btn-primary">View All enrolled subjects</a>&nbsp;&nbsp;
+          <a href="<?php echo e(route('form.create')); ?>" class="btn btn-primary">Enroll New Subjects</a>&nbsp;&nbsp;
+          <a href="<?php echo e(route('form.index')); ?>" class="btn btn-primary">View All enrolled subjects</a>&nbsp;&nbsp;
 
-          @if(Auth::user()->authorizeRoles(['admin']))
+          <?php if(Auth::user()->authorizeRoles(['admin'])): ?>
 
-            @endif
-            <a href="{{route('dashboard')}}" class="btn btn-primary">BackToMain</a>&nbsp;&nbsp;
+            <?php endif; ?>
+            <a href="<?php echo e(route('dashboard')); ?>" class="btn btn-primary">BackToMain</a>&nbsp;&nbsp;
 
         </section>
       </div>
     </div>
   </div>
-  @if ($errors->any())
+  <?php if($errors->any()): ?>
   <div class="alert alert-danger">
     <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
+      <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <li><?php echo e($error); ?></li>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
   </div>
-  @endif
+  <?php endif; ?>
 
   <!-- Basic Forms & Horizontal Forms-->
   <div class="container-fluid">
@@ -46,13 +46,13 @@
             <div class="col-md-4 inline text-left">
               <label for="family_id" class="col-md-6 control-label">Family ID</label>
               <div class="col-md-6">
-                <h5>{{$edit -> family_id}}</h5>
+                <h5><?php echo e($edit -> family_id); ?></h5>
               </div>
             </div>
             <div class="col-md-4 inline text-left">
               <label for="study_id" class="col-md-6 control-label">Study ID</label>
               <div class="col-md-6">
-                <h5>{{$edit -> study_id}}</h5>
+                <h5><?php echo e($edit -> study_id); ?></h5>
               </div>
             </div>
           </div>
@@ -63,4 +63,6 @@
 
 </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("admin.layout.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

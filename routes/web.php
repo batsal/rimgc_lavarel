@@ -27,7 +27,8 @@ Route::namespace('admin')->group(function () {
     Route::get('/form/searchandlist1', 'FormController@searchandlist1')->name('form.searchandlist1');
     Route::resource('/form', 'FormController');
     Route::post('/form/{id}', 'FormController@update');
-    
+    Route::get('/form/{id}/sample_requests', 'FormController@sample_requests')->name('form.sample_requests');
+
     Route::get('profile', 'UserController@profile')->name('profile');
     Route::post('user/{edit}/edit', 'UserController@edit')->name('user.edit');
 

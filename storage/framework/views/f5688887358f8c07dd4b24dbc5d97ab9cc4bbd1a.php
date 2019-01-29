@@ -52,6 +52,13 @@
                           <label for="study_id" class="col-md-6 control-label">Study ID</label>
                           <div class="col-md-6"><h5><?php echo e($edit -> study_id); ?></h5></div>
                         </div>
+                        <div class="col-md-4 inline text-left">
+                          <div class="col-md-6"><h5>
+                            <a href="<?php echo e(route('form.sample_requests' ,$edit -> study_id)); ?>">
+                              View Sample Requests
+                            </a>
+                          </h5></div>
+                        </div>
                       </div>
                   </section>
         </div>
