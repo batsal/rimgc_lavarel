@@ -103,7 +103,7 @@
                   </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" id="affected_status" style="display: none">
                     <div class="col-md-4 text-right">
                       <label for="affected">Affected Status</label>
                     </div>
